@@ -28,3 +28,43 @@ closeBtn.addEventListener('click', () => {
   const modal = document.querySelector('.bground');
   modal.style.display = 'none';
 });
+
+// Form inputs selection 
+
+const firstName= document.getElementById('first');
+const lastName= document.getElementById('last');
+const emailInput = document.getElementById("email");
+const birthDate = document.getElementById("birthdate");
+
+
+//Listener firstname and lastname inputs 
+
+firstName.addEventListener('focusout',function checkTheName() {
+  checkName(firstName,"firstNameID");
+});
+
+lastName.addEventListener('focusout',function checkTheName() {
+  checkName(lastName,"lastNameID");
+});
+
+// Check firstname and lastname registration 
+
+function checkName($name,$id) {
+  if ($name.value.length<=2 && document.getElementById($id) == null )
+  {
+    createElement("p",$id,$name,"2 caractères minimum sont nécessaires pour ce champ");
+  }
+  else if($name.value.length>2 && document.getElementById($id) != null) {
+    const element= document.getElementById($id);
+    element.parentElement.removeChild(element);
+  }}
+
+// Birthdate limitation
+
+  var today = new Date();
+  const year = today.getFullYear();
+  const month = String(today.getMonth() + 1).padStart(2, '0');
+  const day = String(today.getDate()).padStart(2, '0');
+  const todaysDate = `${year}-${month}-${day}`;
+  birthDate.max = todaysDate;
+  
