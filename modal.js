@@ -52,7 +52,7 @@ lastName.addEventListener('focusout',function checkTheName() {
 function checkName($name,$id) {
   if ($name.value.length<=2 && document.getElementById($id) == null )
   {
-    createElement("p",$id,$name,"2 caractères minimum sont nécessaires pour ce champ");
+    createElement("p",$id,$name,"Veuillez entrer 2 caractères ou plus pour le champ du nom.");
   }
   else if($name.value.length>2 && document.getElementById($id) != null) {
     const element= document.getElementById($id);
@@ -67,4 +67,15 @@ function checkName($name,$id) {
   const day = String(today.getDate()).padStart(2, '0');
   const todaysDate = `${year}-${month}-${day}`;
   birthDate.max = todaysDate;
+  
+
+  // Name and firstname error message
+
+  function createElement($typeElem="p",$id="",$element,$message="Veuillez saisir une information"){
+    const errorMessage = document.createElement($typeElem);
+    errorMessage.setAttribute("id",$id);
+    errorMessage.textContent = $message;
+    errorMessage.classList.add("data-error");
+    $element.insertAdjacentElement("afterend", errorMessage);
+  }
   
