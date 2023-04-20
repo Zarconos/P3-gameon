@@ -199,6 +199,7 @@ main {
   position: relative;
   color: #fff;
   padding-top: 10px;
+  height: -webkit-fill-available;
 }
 
 .modal-body {
