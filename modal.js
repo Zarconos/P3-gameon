@@ -138,7 +138,7 @@ const validate = event => {
 
   modalBody.innerHTML = '';
   const conf = document.createElement('p');
-  conf.textContent = 'Merci ! Votre réservation a été reçue.';
+  conf.textContent = 'Merci pour votre inscription';
   conf.style.textAlign = 'center';
   conf.style.marginTop = '300px';
   conf.style.marginBottom = '300px';
