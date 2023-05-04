@@ -50,6 +50,16 @@ const modal = document.querySelector('.bground');
 modal.style.display = 'none';
 });
 
+// Form submit
+
+const form = document.forms.reserve;
+
+form.addEventListener('submit', function(event) {
+  event.preventDefault();
+  validate(event);
+});
+
+
 
 // Form error messages
 
@@ -130,10 +140,15 @@ const validate = event => {
   const conf = document.createElement('p');
   conf.textContent = 'Merci ! Votre réservation a été reçue.';
   conf.style.textAlign = 'center';
+  conf.style.marginTop = '300px';
+  conf.style.marginBottom = '300px';
   modalBody.append(conf);
-  const closeBtn = document.createElement('button');
-  closeBtn.textContent = 'Fermer';
-  closeBtn.classList.add('btn-submit');
-  modalBody.append(closeBtn);
-  closeBtn.addEventListener('click', closeModal);
+  const closeBtnConfirm = document.createElement('button');
+closeBtnConfirm.textContent = 'Fermer';
+closeBtnConfirm.classList.add('btn-submit');
+modalBody.append(closeBtnConfirm);
+closeBtnConfirm.addEventListener('click', () => {
+  const modal = document.querySelector('.bground');
+  modal.style.display = 'none';
+});
 };
